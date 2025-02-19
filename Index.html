@@ -3,11 +3,12 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Google Places API Script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" 
-rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
     <title>Tls</title>
     <style>
         * {
@@ -16,6 +17,51 @@ rel="stylesheet">
             padding: 0;
             font-family: Arial, sans-serif;
         }
+/* 📌 Preloader Fullscreen Fix */
+#preloader {
+    width: 100vw;   /* Full width */
+    height: 100vh;  /* Full height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 📌 Adjust "Initializing..." Text */
+.loading-text {
+    font-size: 2vw; /* Scales with screen */
+}
+
+/* 📌 Responsive Binary Animation */
+.binary-animation {
+    font-size: 3vw; /* Adjust size dynamically */
+}
+
+/* 📌 Tablet Fix */
+@media (max-width: 768px) {
+    .loading-text {
+        font-size: 5vw;
+    }
+
+    .binary-animation {
+        font-size: 4vw;
+    }
+}
+
+/* 📌 Mobile Fix */
+@media (max-width: 480px) {
+    .loading-text {
+        font-size: 6vw;
+        letter-spacing: 1px;
+    }
+
+    .binary-animation {
+        font-size: 5vw;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr); /* Makes it neat */
+    }
+}
+
 
         body, html {
             width: 100%;
@@ -36,6 +82,8 @@ rel="stylesheet">
     position: sticky;
     top: 0;
     z-index: 1000;
+    border: none;
+    padding-top: 40px;
 }
 
 /* Logo Alignment */
@@ -60,23 +108,6 @@ rel="stylesheet">
     display: flex;
     justify-content: center;
     background-color: transparent;
-}
-
-.search-container input {
-    width: 50%;
-    padding: 8px;
-    border: 1px solid #deedff;
-    border-radius: 20px;
-    font-size: 16px;
-    background-color: #f1f1f17f;
-    transition: all 0.3s ease-in-out;
-}
-
-.search-container input:focus {
-    background-color: white;
-    outline: none;
-    border-color: #5b9bd5;
-    box-shadow: 0px 0px 5px rgba(91, 155, 213, 0.5);
 }
 /* Navigation Links */
 .nav-links {
@@ -160,15 +191,6 @@ rel="stylesheet">
         display: block;
     }
 
-    .search-container {
-        width: 100%;
-        order: 1;
-        margin-top: 10px;
-    }
-
-    .search-container input {
-        width: 90%;
-    }
 
     .nav-links {
         display: none;
@@ -182,6 +204,7 @@ rel="stylesheet">
         border-radius: 5px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease-in-out;
+       
     }
 
     .nav-links.show {
@@ -235,7 +258,7 @@ rel="stylesheet">
     overflow: hidden;
     width: 0;
     border-right: 2px solid #000; /* Simulates cursor */
-    animation: typing 3s steps(20, end) forwards, blink 0.5s infinite;
+    animation: typing 2.5s steps(20, end) forwards, blink 0.5s infinite;
 }
 
 @keyframes typing {
@@ -265,16 +288,6 @@ rel="stylesheet">
 
             .menu-icon {
                 display: block; /* Show hamburger menu only on small screens */
-            }
-
-            .search-container {
-                width: 100%;
-                order: 1;
-                margin-top: 10px;
-            }
-
-            .search-container input {
-                width: 90%;
             }
 
             .nav-links {
@@ -323,16 +336,16 @@ rel="stylesheet">
 
 /* Styling the main title */
 .hero-title {
-    font-size: 100px; /* Huge text, responsive */
-    color: #00105e; /* Blue accent */
+    font-size: 150px; /* Huge text, responsive */
+    color: #081248; /* Blue accent */
 }
 
 /* Additional text styling */
 .hero-section h2 {
-    font-size: 50px; /* Slightly smaller than main title */
-    font-weight: 500;
+    font-size: 30px; /* Slightly smaller than main title */
+    font-weight: 550;
     margin-top: 10px;
-    color: #010204;
+    color: #101958;
 }
 
 /* Mobile Optimization */
@@ -346,8 +359,9 @@ rel="stylesheet">
 }
 /* Marquee Box */
 .marquee-container {
-    background-color: #c0c0c048;
-    padding: 20px;
+    background-color: #ffffff37;
+    padding: 30px;
+    padding-bottom: 30px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin: 20px 0;
     overflow: hidden;
@@ -358,13 +372,15 @@ rel="stylesheet">
 .Marquee-title {
     font-family:"Roboto", serif;
     font-size: 2.5rem; /* Adjust size as needed */
-    font-weight: bold;
-    color: #001f3d; /* Dark navy color */
-    text-align: left; /* Center align the text */
+    font-weight: 700;
+    color: #000000; /* Dark navy color */
+    text-align: Center; /* Center align the text */
     letter-spacing: 2px; /* Space out the letters slightly */
     opacity: 0; /* Initially hidden */
     animation: ascendAnimation 2.5s ease-out forwards;
-    padding-bottom: 30px;
+    padding-bottom: 40px;
+    margin-bottom: 20px;
+    padding-top: 20px;
 }
 
 /* Keyframes for the ascending animation */
@@ -383,13 +399,15 @@ rel="stylesheet">
 .marquee {
     display: flex;
     align-items: center;
-    animation: marquee 23s linear infinite;
+    animation: marquee 25s linear infinite;
 }
 
 .marquee img {
     margin-right: 60px;
-    height: 50px; /* Default logo size */
-    object-fit: contain;
+    height: 60px; /* Default logo size */
+    object-fit: contain; 
+   margin-bottom: 20px;
+   margin-top: 50px;
 }
 
 @keyframes marquee {
@@ -413,7 +431,7 @@ rel="stylesheet">
     }
 
     .marquee {
-        animation: marquee 20s linear infinite; /* Slow down the animation for mobile */
+        animation: marquee 15s linear infinite; /* Slow down the animation for mobile */
     }
 }
 
@@ -428,48 +446,25 @@ rel="stylesheet">
     }
 
     .marquee {
-        animation: marquee 30s linear infinite; /* Slow down even more for small devices */
+        animation: marquee 15s linear infinite; 
     }
 }
 /* General Styles */
 .content-boxes {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
+    grid-template-columns: repeat(3, 1fr); /* 3-column layout */
     gap: 20px;
     padding: 20px;
     width: 100%;
     position: relative;
     min-height: 100vh;
-    margin: 0 auto; /* Center the grid container horizontally */
-    max-width: 1200px; /* Limit max-width for large devices */
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
-/* Ensure no extra gap on the right for larger devices */
-@media (max-width: 1024px) {
-    .content-boxes {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns */
-        max-width: 100%; /* Full width for tablets and smaller devices */
-        padding: 20px;
-    }
-}
-
-/* Mobile devices (Phones): 2 columns layout */
-@media (max-width: 480px) {
-    .content-boxes {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for phones */
-        padding: 10px;
-    }
-
-    /* Keep column 1 static, animate column 2 */
-    .animated-box {
-        position: relative;
-        animation: none;
-    }
-}
-
-/* Each box styling */
+/* Box / Terminal Styling */
 .box {
-    background-color: transparent;
+    background: #cccccc3e; /* Dark terminal background */
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -477,85 +472,122 @@ rel="stylesheet">
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: stretch;
     position: relative;
     overflow: hidden;
+    transition: all 0.3s ease;
+    border: 2px solid #00289751; /* Terminal border */
 }
 
-/* Add smooth zoom effect on hover */
-.box:hover {
-    transform: scale(1.00); /* Slight zoom */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Glow effect */
+/* Terminal Header (Fake Window Controls) */
+.terminal-header {
+    display: flex;
+    justify-content: flex-start;
+    padding: 8px 12px;
+    background: #2d2d2d;
+    border-radius: 12px 12px 0 0;
 }
 
-/* Image styling */
-.box img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+.terminal-header .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
 }
 
-.box:hover img {
-    transform: scale(1.1); /* Zoom image a bit */
-}
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
 
-/* Text overlay */
-.text-overlay {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    color: #000757;
+/* Code Container */
+.code-container {
+    flex-grow: 1;
+    padding: 15px;
+    background: #1e1e1e;
+    color: #b1b1b1;
+    font-family:"Roboto",sans-serif;
+    font-size: 15px;
+    overflow: hidden;
+    white-space: pre-wrap;
     text-align: left;
+}
+
+/* Typewriter Effect */
+@keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.code-container code {
+    display: inline-block;
+    overflow: hidden;
+    white-space: pre-wrap;
+    border-right: 2px solid #d4d4d4;
+    width: 100%;
+    animation: typewriter 2s steps(40) forwards;
+}
+
+/* Button Styling (Terminal Style) */
+.box .btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background: #b8e1ff; /* Shades of blue */
+    color: rgb(52, 52, 54);
+    font-size: 1.3rem;
+    font-weight: bold;
     font-family: 'Poppins', sans-serif;
-    font-size: 1.2rem;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-/* Show text on hover */
-.box:hover .text-overlay {
-    opacity: 1;
+/* Hover Effects */
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* Media Queries */
+/* Responsive Design */
 
-/* Tablet-specific styling (≤ 768px) */
+/* Tablet (≤ 768px) */
 @media (max-width: 768px) {
     .content-boxes {
-        grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on tablets */
+        grid-template-columns: repeat(3, 1fr);
         padding: 10px;
-        margin: 0 10px; /* Prevent content from touching edges */
     }
 
     .box {
-        height: 420px; /* Ensure height is greater than width */
-        width: 100%; /* Full width for responsiveness */
+        height: 420px;
+        width: 100%;
+    }
+
+    .box .btn {
+        font-size: 0.9rem;
+        padding: 6px 12px;
     }
 }
 
-/* Responsive Design (Smallest Devices: 2 Columns, No Single Column) */
+/* Mobile (≤ 480px) */
 @media (max-width: 480px) {
     .content-boxes {
-        grid-template-columns: repeat(2, 1fr); /* Always 2 columns */
-        padding: 10px; /* Adjust padding for better layout */
+        grid-template-columns: repeat(2, 1fr);
+        padding: 10px;
     }
 
     .box {
-        height: 420px; /* Ensure height is greater than width */
-        width: 100%; /* Responsive width */
+        height: 400px;
+        width: 100%;
     }
 
-    .text-overlay h3 {
-        font-size: 1.4rem; /* Adjust font size for small screens */
-    }
-
-    .text-overlay p {
-        font-size: 0.9rem; /* Adjust text size */
+    .box .btn {
+        font-size: 0.8rem;
+        padding: 5px 10px;
     }
 }
-
 
 /* Footer Styles */
 .footer {
@@ -693,19 +725,37 @@ rel="stylesheet">
         width: 80%; /* Image takes up 80% of the width */
     }
 }
+.code-snippet {
+    position: absolute;
+    top: 0;
+    font-size: 18px;
+    color: rgba(0, 24, 104, 0.5);
+    animation: float-down 5s linear infinite;
+}
+
+@keyframes float-down {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(100vh); opacity: 0; }
+}
 
 
     </style>
 </head>
 <body>
+    <div id="preloader">
+        <div class="preloader-content">
+            <p class="loading-text">Initializing...</p>
+            <div class="binary-animation">
+                <span>0</span><span>1</span><span>0</span><span>1</span><span>1</span>
+                <span>0</span><span>1</span><span>0</span><span>0</span><span>1</span>
+            </div>
+        </div>
+    </div>
+    
     <!-- Navbar -->
     <div class="navbar">
         <div class="logo">
             <img src="logo.png" alt="Logo">
-        </div>
-
-        <div class="search-container">
-            <input type="text" placeholder="Search...">
         </div>
 
         <div class="menu-icon" onclick="toggleMenu()">...</div>
@@ -726,7 +776,7 @@ rel="stylesheet">
         </h2>
     </div>
     <div class="marquee-container">
-        <h2><div class="Marquee-title">Courses to Careers!</div>
+        <h2><div class="Marquee-title">TECH PREP</div></h2>
         <div class="marquee">
             <img src="1.png" alt="Goldman Sachs Logo">
             <img src="2.png" alt="Accenture Logo">
@@ -742,76 +792,176 @@ rel="stylesheet">
         </div>
     </div>
     <div class="content-boxes">
-        <!-- Column 1 -->
+        <!-- JAVA -->
         <div class="box">
-            <img src="path/to/java-image.jpg" alt="Java Image">
-            <div class="text-overlay">
-                <h3>JAVA</h3>
-                <p>Still running after all these years, like a true legend!</p>
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
             </div>
-        </div>
-        <div class="box animated-box">
-            <img src="path/to/python-image.jpg" alt="Python Image">
-            <div class="text-overlay">
-                <h3>PYTHON</h3>
-                <p>The one that’s easy to learn but hard to stop using!</p>
+            <div class="code-container">
+                <pre><code id="java-code">// Java: The Coffee Lover
+
+    public class Main {
+        public static void main(String[] args) {
+            System.out.println("Debugging... aka 
+            staring at my screen 😩");
+        }
+    }
+    </code></pre>
             </div>
-        </div>
-        <div class="box">
-            <img src="path/to/dsa-image.jpg" alt="DSA Image">
-            <div class="text-overlay">
-                <h3>DSA</h3>
-                <p>Making your brain do push-ups for the soul of coding!</p>
-            </div>
+            <button class="btn">JAVA</button>
         </div>
     
-        <!-- Column 2 -->
+        <!-- PYTHON -->
         <div class="box">
-            <img src="path/to/sql-image.jpg" alt="SQL Image">
-            <div class="text-overlay">
-                <h3>SQL</h3>
-                <p>Because who doesn’t love a good query?</p>
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
             </div>
-        </div>
-        <div class="box animated-box">
-            <img src="path/to/html-image.jpg" alt="HTML Image">
-            <div class="text-overlay">
-                <h3>HTML</h3>
-                <p>Where it all starts, before the magic happens!</p>
+            <div class="code-container">
+                <pre><code id="python-code"># Python: The Lazy Genius
+
+    print("Me coding at 2AM: 'Why does 
+    this work?' 🤨")
+    </code></pre>
             </div>
-        </div>
-        <div class="box">
-            <img src="path/to/css-image.jpg" alt="CSS Image">
-            <div class="text-overlay">
-                <h3>CSS</h3>
-                <p>Giving websites their glow-up since forever!</p>
-            </div>
+            <button class="btn">PYTHON</button>
         </div>
     
-        <!-- Column 3 -->
+        <!-- DSA -->
         <div class="box">
-            <img src="path/to/js-image.jpg" alt="JS Image">
-            <div class="text-overlay">
-                <h3>JS</h3>
-                <p>You can’t make a website without it, just like coffee in the morning!</p>
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
             </div>
-        </div>
-        <div class="box animated-box">
-            <img src="path/to/c-image.jpg" alt="C Image">
-            <div class="text-overlay">
-                <h3>C</h3>
-                <p>The OG language—before ‘fun’ was even a thing!</p>
+            <div class="code-container">
+                <pre><code id="dsa-code">// DSA: Where Life Gets Complicated
+
+    int recursion(int n) 
+    {
+        return (n > 0) ? recursion(n - 1) : 
+        printf("Why am I stuck in recursion? 
+        😵‍💫");
+    }
+    </code></pre>
             </div>
+            <button class="btn">DSA</button>
         </div>
+    
+        <!-- SQL -->
         <div class="box">
-            <img src="path/to/cpp-image.jpg" alt="C++ Image">
-            <div class="text-overlay">
-                <h3>C++</h3>
-                <p>It’s like C, but it’ll make you sweat a bit more!</p>
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
             </div>
+            <div class="code-container">
+                <pre><code id="sql-code">-- SQL: 
+    Finding Myself
+    SELECT * FROM life WHERE purpose IS
+    NOT NULL;
+    </code></pre>
+            </div>
+            <button class="btn">SQL</button>
+        </div>
+    
+        <!-- HTML -->
+        <div class="box">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="code-container">
+                <pre><code id="html-code">&lt;!HTML: The OG Influencer&gt;
+    &lt;marquee&gt;My website is better than 
+    yours 😎&lt;/marquee&gt;
+    </code></pre>
+            </div>
+            <button class="btn">HTML</button>
+        </div>
+    
+        <!-- CSS -->
+        <div class="box">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="code-container">
+                <pre><code id="css-code">/* CSS: When Nothing Works */
+    div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* still not centered 😭 */
+    }
+    </code></pre>
+            </div>
+            <button class="btn">CSS</button>
+        </div>
+    
+        <!-- JAVASCRIPT -->
+        <div class="box">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="code-container">
+                <pre><code id="js-code">// JavaScript: The Weird Kid
+    console.log(0 == "0"); // true
+    console.log(0 === "0"); // false
+    console.log([] + []); // ""
+    </code></pre>
+            </div>
+            <button class="btn">JS</button>
+        </div>
+    
+        <!-- C -->
+        <div class="box">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="code-container">
+                <pre><code id="c-code">// C: The OG
+    #include &lt;stdio.h&gt;
+    int main() {
+        printf("Segmentation fault (core dumped) 💀");
+        return 0;
+    }
+    </code></pre>
+            </div>
+            <button class="btn">C</button>
+        </div>
+    
+        <!-- C++ -->
+        <div class="box">
+            <div class="terminal-header">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+            </div>
+            <div class="code-container">
+                <pre><code id="cpp-code">// C++: When You Just Can't Let Go of C
+    #include &lt;iostream&gt;
+    using namespace std;
+    int main() {
+        cout << "Hello World, but make it 
+        Object-Oriented 🫠";
+        return 0;
+    }
+    </code></pre>
+            </div>
+            <button class="btn">C++</button>
         </div>
     </div>
-     
+    
 <!-- Footer -->
 <div class="footer">
     <div class="footer-container">
@@ -850,6 +1000,20 @@ rel="stylesheet">
             let navLinks = document.querySelector(".nav-links");
             navLinks.classList.toggle("show");
         }
+        const codeSnippets = ["<div>", "console.log('Hello');", "if(x > 10){}", "function(){}", ".container { }"];
+
+function createSnippet() {
+    let snippet = document.createElement("span");
+    snippet.classList.add("code-snippet");
+    snippet.innerText = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+    
+    snippet.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(snippet);
+
+    setTimeout(() => snippet.remove(), 5000);
+}
+
+setInterval(createSnippet, 800);
 // Get all animated boxes (2, 5, 8) in column 2
 const animatedBoxes = document.querySelectorAll('.animated-box');
 
@@ -857,11 +1021,14 @@ const animatedBoxes = document.querySelectorAll('.animated-box');
 function onScroll() {
     animatedBoxes.forEach((box) => {
         const boxPosition = box.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight;
+        const viewportHeight = window.innerHeight;
 
-        // Apply the parallax effect only when the box is visible in the viewport
-        if (boxPosition < screenPosition) {
-            box.style.transform = `translateY(${(boxPosition / screenPosition) * 40 * 1.02}px)`; // Adjust movement by 2%
+        // Check if the element is visible in viewport
+        if (boxPosition < viewportHeight * 0.9) { // Activates earlier for a smoother effect
+            let moveAmount = ((viewportHeight - boxPosition) / viewportHeight) * 50; // Adjust movement range
+            moveAmount = Math.min(moveAmount, 80); // Limit max movement
+            box.style.transform = `translateY(${moveAmount}px)`;
+            box.style.opacity = 1; // Ensure it stays visible
         } else {
             box.style.transform = 'translateY(0)';
         }
@@ -870,6 +1037,68 @@ function onScroll() {
 
 // Add event listener to track scrolling
 window.addEventListener('scroll', onScroll);
+
+// Run once on load to check visibility immediately
+onScroll();
+
+
+    var animation = lottie.loadAnimation({
+        container: document.getElementById("lottie"),
+        renderer: "svg",
+        loop: true,
+        autoplay: true,
+        path: "https://assets3.lottiefiles.com/packages/lf20_jpVFx7.json"
+    });
+
+    window.addEventListener("load", function () {
+        document.getElementById("preloader").style.display = "none";
+    });
+document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        document.getElementById("preloader").classList.add("preloader-fadeout");
+    }, 2500); // Adjust time as needed
+});
+// typewriter of content boxes
+function typeEffect(element, text, speed) {
+    let index = 0;
+    let lines = text.split("\n"); // Split text into lines
+    element.innerHTML = ""; // Clear previous text
+
+    function typeLine(lineIndex) {
+        if (lineIndex >= lines.length) {
+            return; // Stop when all lines are printed
+        }
+
+        let charIndex = 0;
+        let line = lines[lineIndex];
+        let lineElement = document.createElement("div");
+        lineElement.className = "code-line";
+        element.appendChild(lineElement);
+
+        function typeCharacter() {
+            if (charIndex < line.length) {
+                lineElement.innerHTML = line.substring(0, charIndex + 1);
+                charIndex++;
+                setTimeout(typeCharacter, speed);
+            } else {
+                lineElement.innerHTML = line; // Final text without cursor
+                setTimeout(() => typeLine(lineIndex + 1), 400); // Move to next line
+            }
+        }
+
+        typeCharacter();
+    }
+
+    typeLine(0); // Start typing
+}
+
+// Attach to hover event
+document.querySelectorAll(".code-container").forEach((box) => {
+    box.addEventListener("mouseenter", function () {
+        typeEffect(this, this.getAttribute("data-code"), 50);
+    });
+});
+
 
 </script>
 </body>
