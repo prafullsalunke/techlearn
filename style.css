@@ -1,20 +1,72 @@
 * {
-    margin: 0%;
-    padding: 0%;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
   }
+  
+h1{
+  color:White;
+  font-size: 60px  ;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 790;
+  padding-bottom: 20px;
 
+}
+h2{
+  color: rgb(19, 18, 18);
+  font-size: 50px;
+  padding-top: 40px;
+  font-weight: 800  ;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: unset;
+}
+h3{
+  color: white;
+  font-size: 60px  ;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+h4{
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-family: 'monospace';  
+   
+}
+h4 a{
+  color: black;
+  text-decoration: none;
+}
+h5{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h6{
+  display: flex;
+  padding-top: 30px;
+}
+p{
+  color:white;
+}
+p1{
+font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+font-size: 25px;
+font-style:unset;
+color: rgb(19, 159, 252);
+
+}
   P 
   { 
     font-size: 16px;
-     color:black; 
+     color:rgb(255, 248, 248); 
      margin: 10px 0 10px 0;
     }
   
   .section-p1 
   { 
-   padding: 5px 20px;
+    margin-bottom: 10px ; 
+    margin-top: 10px ; 
   }
   
   .section-m1 
@@ -34,11 +86,16 @@
     outline: none ;
     transition: 0.2s;
   }
+  body {
+    margin-left: 30px;
+    margin-right: 30px;
+    max-width: fit-content;
+    font-family: 'Spartan';font-size: 22px;
+  }
   body 
   {
   width: 100%;
   background-color:white;
-  font-family: 'Spartan';font-size: 22px;
   }
   /* Header start*/
   
@@ -48,7 +105,7 @@
     justify-content: space-between;
     padding: 1px 15px;
     background-color: rgb(19, 159, 252);
-    box-shadow: 0 50px 15px rgba(0, 0, 0, 0.06) ;
+    box-shadow: 0 6px 10px rgb(36, 36, 36) ;
     z-index: 999;
     position: sticky;
     top: 0;
@@ -101,11 +158,9 @@
     display: none;
     align-items: center;
   }
-  
-
-  /* Home page*/
+ /* Home page*/
 #hero{
-    background-image: url("images/M1.jpeg");
+    background-image: url("images/M2.png");
     background-size: cover  ;
     background-position: center;
     background-repeat: no-repeat;
@@ -116,14 +171,13 @@
     text-align: center;
     display: flex;
   }
-
 #hero button{
     background-color: rgb(19, 159, 252);
     position: flex-start;
 }
 #hero button:hover{
-    color: lightgrey;
-    background-color: rgb(1, 71, 73);
+    color: black;
+    background-color: white;
 }
 #feature{
     display: flex;
@@ -150,8 +204,8 @@
     box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
     }
     #feature .fe-box img{
-      width:90% ;
-      height:60%;
+      width:65% ;
+      height:40%;
       margin-bottom: 10px;
     }
 #feature .fe-box h6{
@@ -163,7 +217,7 @@
     background-color: rgb(19, 159, 252);
 }
 #hero1{
-  background-image: url("../M1.jpg");
+  background-image: url("images/M3.jpg");
   background-size: cover  ;
   background-position: center;
   background-repeat: no-repeat;
@@ -172,31 +226,27 @@
   justify-content:center;
   align-items: center ;
   text-align: center;
-  display: flex;
-  padding-top: 30px;
-  margin-top: 30px;
+  padding: 50px;
 }
 #product1{
     text-align: center;
+    padding: none;
 
 }
 #product1 .pro-container{
     display: flex;
     justify-content: space-between;
-    padding-top: 20px ;
     flex-wrap: wrap;
+    padding-top: 40px;
   
 } 
 #product1 .pro{
     width:20%;
     min-width: 230px;
-    padding: 10px 12px;
-    border: 3px solid  rgb(116, 115, 115);
-    background-color: rgb(116, 115, 115);
+
     border-radius: 3px;
     color: black;
     box-shadow: 20px 20px 30px rgba(2, 2, 2, 0.02);
-    margin-top: 15px 0;
     transition: 0.2s ease;
     position: relative;
     margin: 20px 20px;
@@ -218,58 +268,26 @@
 }
   /*Footer start*/
 
-h1{
-    color:rgb(255, 255, 255);
-    font-size: 60px  ;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-weight: 790;
-    padding-bottom: 20px;
-    text-align: center;
+#banner{
+  display: flex;
+  border-radius: 2px;
+  padding: none;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center ;
+  text-align: center;
+  width: 100%;
+  height: 30vh;
+  background-size: cover  ;
+  background-position: center;
+  background-image: url("images/ban.jpg");
 }
-  h2{
-    color: rgb(19, 18, 18);
-    font-size: 50px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    font-weight: 700  ;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-style: unset;
+#banner button{
+  background-color: rgb(19, 159, 252);
 }
-h3{
-    color: rgb(19, 159, 252);
-    font-size: 60px  ;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-}
-h4{
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    font-size: 20px;
-    font-family: 'monospace';  
-     
-}
-h4 a{
-    color: black;
-    text-decoration: none;
-}
-h5{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-h6{
-    display: flex;
-    padding-top: 30px;
-}
-p{
-    color:white;
-
-}
-p1{
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
-  font-size: 25px;
-  font-style:unset;
-  color: rgb(19, 159, 252);
-
+#banner button:hover{
+  color: black;
+  background-color: white;
 }
 footer{
   background-color: black;
@@ -281,7 +299,8 @@ footer .col{
   display: flex;
   flex-direction:column;
   align-items: flex-start ;
-  font-size: 25px;
+  font-size: 25px; 
+  padding-left: 15px;
   
 }
 footer .col2{
@@ -302,394 +321,14 @@ footer a:hover{
   color: gray;
   text-decoration: none;
 }
-footer .follow{
-   margin-top: 1px;
-}
-footer .follow i{
-   color: white;
+div.icon{
+  color: white;
    padding-right: 4px;
    cursor: pointer;
 }
-footer .follow i:hover{
-   color: gray;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-* {
-  margin: 0%;
-  padding: 0%;
-  box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
-}
-/*HEADER starts........................................................................................... */
-
-#header 
-{
-  display: flex; 
-  align-items: center;
-  justify-content: space-between;
-  background-color: white;
-  z-index: 999;
-  position: sticky;
-}
-#header.logo img{
-  width: 110px;
-  border-radius: 0px;
-}
-
-/* Navbar list elements */
-#navbar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  
-  }
-
-  #navbar li {
-      list-style: none;   
-      padding: 0px 10px;
-      position: relative;
-      font-weight: 700;
-  
-  }
-  
-  #navbar li a {
-      list-style: none;
-      text-decoration: none;
-      font-size: 15px;
-      color: black;
-      transition: 0.3s ease;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+div.icon:hover{
+  color: gray;
+   padding-top: 4px;
+   cursor: pointer;
    
-  }
-  #navbar li a:hover,
-  #navbar li a.active {
-      color: orange;
-      cursor: pointer;
-      list-style: none;
-      text-decoration: none;
-      font-size: 16px;    
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    #navbar li a:hover::after,
-    #navbar li a.active::after
-   {
-      content: " ";
-      width: 40px;
-      height: 2px;
-      background: orange;
-      position: absolute;
-      bottom: -4px;
-      left: 20px;
-    
-  }
-
-  .dropbtn {
-      font-size: 14px;
-      font-weight: 500;
-      margin-top: 20px;
-      padding: 10px 2 0px;
-      color: black;
-      background-color: white;
-      border-radius: 4px;
-      border: none;
-      cursor: pointer;
-      outline: none ;
-      transition: 0.2s;
-  }
-  
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 10px;
-    right: 0;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown-content a:hover {
-      background-color: #faf7f7;  
-      text-decoration: none;
-      font-size: 10px;
-      color: black;
-      transition: 0.3s ease;  
-  }
-      
-     
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  .dropdown:hover .dropbtn {
-    background-color: #000106d1;
-  }
-  #mobile
-  {
-      display: none;
-      align-items: center;
-  }
-/* HEADER ends............................................................................................. */
-
-/*FOOTER starts........................................................................................... */
-/* Footer section */
-
-.section-p1 
-{ 
- padding: 5px 20px;
-}
-
-footer{
-  background-color:black;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  width: 100%;
-}
-footer .col1{
-  display: flex;
-  flex-direction:column;
-  align-items: flex-start ;
-  font-size: 25px;
-  
-}
-footer .col2{
-  display: flex;
-  flex-direction:column;
-  font-size: 25px;
-  text-align: right;
-}   
-footer h3{
-  color: lightgray;
-  font-size: 20px;
-}
-footer a{
-  color: white;
-  font-size: 15px;
-  text-decoration: none;
-  cursor: pointer;
-  text-align:right;
-}
-footer a:hover{
-  color: orange;
-  text-decoration: none;
-}
-#footer.logo img{
-  width: 90px;
-  border-radius: 0px;
-}
-
-
-/*FOOTER ends........................................................................................... */
-
-
-/* Home page.............................................................................................*/
-
-.section-m1 
-{ 
-  margin: 10px ; 
-}
-#hero{
-  background-image: url("../images/M1.png");
-  height: 100vh;
-  flex-direction: column;
-  border: 7px solid rgb(7, 7, 7);
-  display: flex;
-  padding: none;
-  justify-content:center;
-  align-items: center ;
-  text-align: center;
-  background-size: cover  ;
-  background-position: center;
-}
-#hero button{
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 25px;
-  padding: 15px 30px;
-  color: black;
-  background-color: beige ;
-  margin-bottom: 110px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  outline: none ;
-  transition: 0.2s;
-}
-#hero button:hover{
-  color: lightgrey;
-  background-color: rgb(1, 71, 73);
-}
-#hero h3{
-  color: rgb(238, 100, 8);
-  font-size: 60px  ;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-#product{
-  text-align: center;
-
-}
-#product .pro-container{
-  display: flex;
-  justify-content: space-between;
-  padding-top: 20px ;
-  flex-wrap: wrap;
-
-} 
-#product .pro{
-  width:20%;
-  min-width: 230px;
-  padding: 10px 12px;
-  border-radius: 3px;
-  color: black;
-  box-shadow: 20px 20px 30px rgba(2, 2, 2, 0.02);
-  margin-top: 15px 0;
-  transition: 0.2s ease;
-  position: relative;
-  margin: 20px 20px;
-}
-#product h3
-{
-      color: rgb(238, 100, 8);
-      font-size: 60px  ;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
-}
-#product h4 a{
-  list-style: none;
-  text-decoration: none;
-  font-size: 25px;
-  color: black;
-  transition: 0.3s ease;
-  font-family: "Audiowide", sans-serif;
-}
-#product .pro img{
-  width: 35vh;
-  height: 35vh;
-  background-color: white;
-  cursor: pointer;
-
- 
-}
-#product .pro:hover{
-  transform: scale(1.1);
-  transition: .25s ;
-}
-
-/* Banner starts..........................................................................................*/
-#banner{
-  display: flex;
-  border-radius: 2px;
-  padding: none;
-  flex-direction: column;
-  justify-content:center;
-  align-items: center ;
-  text-align: center;
-  width: 100%;
-  height: 25vh;
-  background-size: cover  ;
-  background-position: center;
-  background-image: url("../images/ban1.png");
-}
-#banner button{
-  background-color: rgb(250, 105, 21);
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 25px;
-  padding: 15px 30px;
-  color: black;
-  margin-bottom: 70px;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
-  outline: none ;
-  transition: 0.2s;
-}
-#banner button:hover{
-  color: lightgrey;
-  background-color: rgb(1, 71, 73);
-}
-#banner h3{
-  color: rgb(238, 100, 8);
-  font-size: 50px  ;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-/* Banner ends............................................................................................*/
-
-
-
-/* Home page ends..........................................................................................*/
-
-  /*Start Media Query */
-@media (max-width: 799px) {
-  #navbar {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      position: fixed;
-      top: 0;
-      right: -300px;
-      height: 100vh;
-      width: 200px;
-      background-color: white;
-      box-shadow: 0 40px 60px rgba(0,0, 0, 0.01);
-      padding: 80px 0 0 10px;
-      transition: 0.4 s ease-in;
-  }
-  #navbar.active{
-      right: 0px;
-  }
-  #navbar li{
-      margin-bottom: 25px;
-  }
-  #mobile{
-      display: flex;
-      align-items: center;
-  }
-  #mobile i{
-      color:black;
-      font-size: 24px;
-      padding-left: 20px;
-  }
-  #close {
-      cursor:pointer;
-      font-weight: 900;
-      position: absolute;
-      color: rgb(7, 7, 7);
-      top: 20px;
-      left:20px;
-      font-size:24px;
-
-  }
 }
