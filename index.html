@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- Google Places API Script -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Birthstone&family=Funnel+Display:wght@300..800&family=Miniver&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
     <title>Tls</title>
@@ -17,62 +16,34 @@
             padding: 0;
             font-family: Arial, sans-serif;
         }
-/* 📌 Preloader Fullscreen Fix */
-#preloader {
-    width: 100vw;   /* Full width */
-    height: 100vh;  /* Full height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+/* Default Light Mode (No Changes Here) */
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: black;
+    background: url('../HERO.png') no-repeat center center fixed; 
+    background-size: cover;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
 }
 
-/* 📌 Adjust "Initializing..." Text */
-.loading-text {
-    font-size: 2vw; /* Scales with screen */
+/* Default Light Mode */
+body {
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    color: black;
+    background: url('../HERO.png') no-repeat center center fixed; 
+    background-size: cover;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
 }
-
-/* 📌 Responsive Binary Animation */
-.binary-animation {
-    font-size: 3vw; /* Adjust size dynamically */
-}
-
-/* 📌 Tablet Fix */
-@media (max-width: 768px) {
-    .loading-text {
-        font-size: 5vw;
-    }
-
-    .binary-animation {
-        font-size: 4vw;
-    }
-}
-
-/* 📌 Mobile Fix */
-@media (max-width: 480px) {
-    .loading-text {
-        font-size: 6vw;
-        letter-spacing: 1px;
-    }
-
-    .binary-animation {
-        font-size: 5vw;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr); /* Makes it neat */
-    }
-}
-
-
-        body, html {
-            width: 100%;
-            height: 100%;
-            background: url('../HERO.png') no-repeat center center fixed; 
-            background-size: cover; 
-            font-family: Arial, sans-serif;
-            color: white; /* Adjust text color for visibility */
-        }
-
-       /* Navbar */
+/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
@@ -86,7 +57,7 @@
     padding-top: 40px;
 }
 
-/* Logo Alignment */
+/* Logo */
 .logo {
     display: flex;
     align-items: center;
@@ -95,20 +66,26 @@
 .logo img {
     height: 40px;
     vertical-align: middle;
-    transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+    transition: transform 0.3s ease-in-out;
 }
 
 .logo img:hover {
-    transform: scale(1.1); /* Slight zoom effect on hover */
+    transform: scale(1.1);
 }
 
-/* Search Bar */
-.search-container {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    background-color: transparent;
+/* Dark Mode Logo */
+.logo img.dark-logo {
+    display: none;
 }
+
+body.dark-mode .logo img.light-logo {
+    display: none;
+}
+
+body.dark-mode .logo img.dark-logo {
+    display: inline-block;
+}
+
 /* Navigation Links */
 .nav-links {
     display: flex;
@@ -118,18 +95,22 @@
 
 .nav-links a {
     text-decoration: none;
-    background: transparent;  /* Transparent background */
-    border: 2px solid transparent;
+    background: transparent;
     padding: 10px 16px;
-    font-size: 16px;
+    font-size: 15px;
     color: #2a3d66;
     cursor: pointer;
     border-radius: 5px;
-    position: relative; /* For positioning the underline */
+    position: relative;
     transition: all 0.3s ease-in-out;
 }
 
-/* Underline effect on hover */
+/* Dark Mode Links */
+body.dark-mode .nav-links a {
+    color: white;
+}
+
+/* Underline effect */
 .nav-links a::after {
     content: "";
     position: absolute;
@@ -137,20 +118,29 @@
     left: 0;
     width: 0%;
     height: 1px;
-    background-color: #001b4e; /* Color of the underline */
-    transition: width 0.5s ease-in; /* Smooth transition for the underline */
+    background-color: #001b4e;
+    transition: width 0.5s ease-in-out;
 }
 
 .nav-links a:hover::after {
-    width: 100%; /* Expand the underline to full width on hover */
+    width: 100%;
 }
 
-/* Hover state */
-.nav-links a:hover {
-    background: transparent; /* Keep the background transparent on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+/* Active Nav Link Always Underlined */
+.nav-links a.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #001b4e;
 }
 
+/* Dark Mode Active Link */
+body.dark-mode .nav-links a.active::after {
+    background-color: gray;
+}
 
 /* Login/Signup Button */
 .login-button {
@@ -163,34 +153,33 @@
 }
 
 .login-button:hover {
-    background-color: #4a8ac6;
+    background-color: #d3eaff00;
     transform: scale(1.05);
 }
 
-/* Mobile Menu */
+/* Mobile Menu Icon */
 .menu-icon {
-    display: none; /* Hidden by default */
+    display: none;
     font-size: 24px;
     cursor: pointer;
     color: #2a3d66;
-    transition: transform 0.3s ease-in-out;
+    position: absolute;
+    right: 20px;
+    top: 40px;
+    z-index: 1100;
+    transition: top 0.3s ease-in-out;
 }
 
-.menu-icon:hover {
-    transform: rotate(90deg);
+/* Move icon higher & change to vertical dots when menu is open */
+.menu-icon.active {
+    top: 15px;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .navbar {
-        flex-wrap: nowrap;
-        justify-content: space-between;
-    }
-
     .menu-icon {
         display: block;
     }
-
 
     .nav-links {
         display: none;
@@ -203,61 +192,44 @@
         padding: 10px;
         border-radius: 5px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease-in-out;
-       
+        transition: top 0.3s ease-in-out;
     }
 
     .nav-links.show {
         display: flex;
+        top: 70px;
     }
 
-    .nav-links a {
-        width: 100%;
-        text-align: left;
-        padding: 10px;
-        border: none;
-        background: transparent;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .nav-links a:hover {
-        background: rgba(91, 155, 213, 0.2);
-        transform: translateX(5px);
-    }
-
-    .login-button {
-        background-color: #5b9bd5;
-        color: white;
-        padding: 10px 16px;
-        border-radius: 5px;
-        transition: all 0.3s ease-in-out;
-    }
-
-    .login-button:hover {
-        transform: scale(1.05);
+    /* Remove underline for active links in mobile view */
+    .nav-links a.active::after {
+        display: none;
     }
 }
 
-        /* Hero Section */
-.hero-section {
+
+/* Hero Section */
+      .hero-section {
     display: flex;
     flex-direction: column;
     justify-content: flex-start; /* Align content closer to the navbar */
     align-items: center;
-    height: auto; /* Adjust height dynamically */
-    padding-top: 40px; /* Adjust this value for spacing */
+    height: 100vh; /* Full viewport height */
+    width: 100%;
+    padding-top: 50px; /* Adjust this value for spacing */
     text-align: center;
+    color: white;
+    font-family: "Funnel Display", serif;
 }
-
 .hero-title {
     font-weight: bold;
-    margin-top: 10px; /* Reduced top margin for closeness */
+    margin-top: 90px; /* Reduced top margin for closeness */
     margin-bottom: 10px; /* Adds slight gap before next content */
     font-family: "Funnel Display", serif;
     white-space: nowrap;
     overflow: hidden;
-    width: 0;
-    border-right: 2px solid #000; /* Simulates cursor */
+    display: inline-block; /* Ensures animation applies properly */
+    font-size: 150px; /* Huge text, responsive */
+    color: #081248; /* Blue accent */
     animation: typing 2.5s steps(20, end) forwards, blink 0.5s infinite;
 }
 
@@ -269,147 +241,144 @@
 @keyframes blink {
     50% { border-color: transparent; }
 }
-        
-        /* Mobile Menu */
-        .menu-icon {
-            display: none; /* Hidden by default */
-            font-size: 24px;
-            cursor: pointer;
-            color: #2a3d66;
-            order: 3;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-wrap: nowrap;
-                justify-content: space-between;
-            }
-
-            .menu-icon {
-                display: block; /* Show hamburger menu only on small screens */
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 60px;
-                right: 0;
-                width: 200px;
-                background-color: #d6e4f0;
-                padding: 10px;
-                border-radius: 5px;
-                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            }
-
-            .nav-links.show {
-                display: flex;
-            }
-
-            .nav-links a {
-                width: 100%;
-                text-align: left;
-                padding: 10px;
-                border: none;
-                background: transparent;
-            }
-
-            .login-button {
-                background-color: #5b9bd5;
-                color: white;
-                padding: 10px 16px;
-                border-radius: 5px;
-            }
-        }
-
-.hero-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100vh; /* Full viewport height */
-    width: 100%;
-    color: white;
-    font-family:"Funnel Display", serif;
-}
-
-/* Styling the main title */
-.hero-title {
-    font-size: 150px; /* Huge text, responsive */
-    color: #081248; /* Blue accent */
-}
 
 /* Additional text styling */
 .hero-section h2 {
-    font-size: 30px; /* Slightly smaller than main title */
+    font-size: 25px; /* Slightly smaller than main title */
     font-weight: 550;
     margin-top: 10px;
     color: #101958;
 }
+/* Mobile & Tablet Optimization */
+@media (max-width: 1024px) { /* Covers tablets */
+    .hero-title {
+        font-size: 12vw; /* Adjusts for tablets */
+        padding: 2vw;
+        padding-top: 20vh; /* Moves title to 20% of screen height */
+        border-right: none;
+    }
+    .hero-section h2 {
+        font-size: 4.0vw;
+    }
+}
 
-/* Mobile Optimization */
+/* Mobile Screens (Width ≤ 768px) */
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 12vw; /* Adjusts for mobile */
+        font-size: 10vw; /* Adjust text size for better fit */
+        padding: 1.5vw;
+        padding-top: 20vh; /* Ensures consistent positioning */
+        margin: 5px;
+    }
+    .hero-section h2 {
+        font-size: 4.5vw;
+        margin-top: 5px;
+    }
+}
+
+/* Small Mobile Screens (Width ≤ 480px) */
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 12vw; /* Make it slightly larger for small screens */
+        padding: 2vw;
+        padding-top: 20vh; /* Moves title down */
+        margin: 5px;
     }
     .hero-section h2 {
         font-size: 5vw;
+        margin-top: 5px;
     }
 }
-/* Marquee Box */
+/* Marquee Container */
 .marquee-container {
-    background-color: #ffffff37;
-    padding: 30px;
-    padding-bottom: 30px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 20px 0;
+    background-color: #ffffff0c;
+    padding: 40px 20px;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    margin: 40px 0;
     overflow: hidden;
     width: 100%;
-    
-}
-/* General styles for the Marquee title */
-.Marquee-title {
-    font-family:"Roboto", serif;
-    font-size: 2.5rem; /* Adjust size as needed */
-    font-weight: 700;
-    color: #000000; /* Dark navy color */
-    text-align: Center; /* Center align the text */
-    letter-spacing: 2px; /* Space out the letters slightly */
-    opacity: 0; /* Initially hidden */
-    animation: ascendAnimation 2.5s ease-out forwards;
-    padding-bottom: 40px;
-    margin-bottom: 20px;
-    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
 }
 
-/* Keyframes for the ascending animation */
+/* Flexbox for Title and Subtext */
+.marquee-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    margin-bottom: 40px; /* Space below title */
+}
+
+/* Tech Prep Title (Left Side) */
+.Marquee-title {
+    font-family: "Poppins", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #04024d;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: ascendAnimation 2.5s ease-out forwards;
+    text-align: left;
+    flex: 1;
+}
+
+/* Subtext (Right Side) */
+.Marquee-subtext {
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #333;
+    max-width: 50%;
+    text-align: justify; /* Default: Justified text */
+    flex: 1;
+}
+
+/* Center-align on mobile screens */
+@media (max-width: 768px) {
+    .Marquee-subtext {
+        font-size: 0.6rem;
+        text-align: right; /* Center-align text */
+        max-width: 60%; /* Slightly wider for better readability */
+        margin: 0 auto; /* Center horizontally */
+    }
+}
+
+
+/* Animation for Title */
 @keyframes ascendAnimation {
     0% {
-        transform: translateY(30px); /* Start from 30px below */
+        transform: translateY(30px);
         opacity: 0;
     }
     100% {
-        transform: translateY(0); /* Move to the original position */
+        transform: translateY(0);
         opacity: 1;
     }
 }
 
-
+/* Marquee Scrolling Effect */
 .marquee {
     display: flex;
     align-items: center;
-    animation: marquee 25s linear infinite;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+    width: 100%;
+    margin-bottom: 50px; /* Space below Marquee */
+    margin-top: 70px;
 }
 
+/* Marquee Logos */
 .marquee img {
     margin-right: 60px;
-    height: 60px; /* Default logo size */
-    object-fit: contain; 
-   margin-bottom: 20px;
-   margin-top: 50px;
+    height: 60px;
+    object-fit: contain;
 }
 
+/* Keyframes for Marquee Animation */
 @keyframes marquee {
     0% {
         transform: translateX(100%);
@@ -418,37 +387,151 @@
         transform: translateX(-100%);
     }
 }
+/* Stats Section */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default: 4 boxes in a row */
+    gap: 30px;
+    width: 80%;
+    justify-items: center;
+    padding: 0 20px;
+}
 
-/* Responsive Marquee */
-@media (max-width: 768px) {
-    .marquee img {
-        height: 40px; /* Smaller logos for mobile */
-        margin-right: 20px;
+/* Stat Box */
+.stat-box {
+    background: rgba(255, 255, 255, 0);
+    padding: 20px;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.3s ease;
+}
+
+/* Increase font size for larger screens */
+/* Stats Section */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Default: 4 boxes in a row */
+    gap: 40px;
+    width: 80%;
+    justify-items: center;
+    padding: 0 50px;
+}
+
+/* Stat Box */
+.stat-box {
+    background: rgba(255, 255, 255, 0);
+    padding: 20px;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.3s ease;
+}
+
+/* Font Styling */
+.stat-box h2 {
+    font-size: 3rem; /* Larger font for desktops */
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    color: #04024d;
+}
+
+.stat-box p {
+    font-size: 1.1rem; /* Slightly larger subtext */
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    justify-content: center; /* Center align */
+}
+
+/* Tablets (2 boxes per row, slightly smaller font) */
+@media (max-width: 1024px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 boxes per row */
+        gap: 20px;
+    }
+    
+    .stat-box h2 {
+        font-size: 2.5rem; /* Adjusted for tablets */
     }
 
-    .marquee-container {
+    .stat-box p {
+        font-size: 1rem;
+        justify-content: center; /* Center align */
+    }
+}
+
+/* Mobiles (2 boxes per row, center-aligned content) */
+@media (max-width: 768px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr); /* Keep 2 boxes per row */
+        gap: 15px;
+        justify-content: center; /* Center align */
+    }
+
+    .stat-box {
+        width: 180px;
         padding: 15px;
     }
 
-    .marquee {
-        animation: marquee 15s linear infinite; /* Slow down the animation for mobile */
+    .stat-box h2 {
+        font-size: 2rem;
+    }
+
+    .stat-box p {
+        font-size: 0.9rem;
+        text-align: center; /* Justified text */
     }
 }
 
+/* Small Mobiles (Still 2 boxes per row, fully center-aligned) */
 @media (max-width: 480px) {
-    .marquee img {
-        height: 30px; /* Even smaller logos for very small screens */
-        margin-right: 15px;
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr); /* Still 2 boxes per row */
+        gap: 10px;
+        justify-content: center; /* Center align */
+        text-align: center; /* Ensure full alignment */
     }
 
-    .marquee-container {
+    .stat-box {
+        width: 150px;
         padding: 10px;
     }
 
-    .marquee {
-        animation: marquee 15s linear infinite; 
+    .stat-box h2 {
+        font-size: 1.8rem;
+    }
+
+    .stat-box p {
+        font-size: 0.85rem;
+        text-align: center; /* Justified text */
     }
 }
+/* Content Header (Image as Heading) */
+.content-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.coding-image {
+    max-width: 60%;
+    height: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 820px) { /* Large Tablets */
+    .coding-image {
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 480px) { /* Phones */
+    .coding-image {
+        max-width: 90%;
+        border-radius: 5px;
+    }
+}
+
 /* General Styles */
 .content-boxes {
     display: grid;
@@ -464,7 +547,7 @@
 
 /* Box / Terminal Styling */
 .box {
-    background: #cccccc3e; /* Dark terminal background */
+    background: #cccccc3e;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -472,21 +555,24 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: stretch;
+    justify-content: center;
+    align-items: center;
     position: relative;
     overflow: hidden;
     transition: all 0.3s ease;
-    border: 2px solid #00289751; /* Terminal border */
+    border: 2px solid #00289751;
 }
 
-/* Terminal Header (Fake Window Controls) */
+/* Terminal Header */
 .terminal-header {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     padding: 8px 12px;
-    background: #2d2d2d;
+    background: #030046;
     border-radius: 12px 12px 0 0;
+    width: 100%;
+    position: relative;
 }
 
 .terminal-header .dot {
@@ -504,13 +590,14 @@
 .code-container {
     flex-grow: 1;
     padding: 15px;
-    background: #1e1e1e;
-    color: #b1b1b1;
-    font-family:"Roboto",sans-serif;
+    background: #ffffff57;
+    color: #212020;
+    font-family: "Roboto", sans-serif;
     font-size: 15px;
     overflow: hidden;
     white-space: pre-wrap;
     text-align: left;
+    width: 100%;
 }
 
 /* Typewriter Effect */
@@ -523,21 +610,20 @@
     display: inline-block;
     overflow: hidden;
     white-space: pre-wrap;
-    border-right: 2px solid #d4d4d4;
     width: 100%;
     animation: typewriter 2s steps(40) forwards;
 }
 
-/* Button Styling (Terminal Style) */
+/* Top Button (Course Name) */
 .box .btn {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 13px;
+    right: 18px;
     padding: 6px 12px;
     border-radius: 6px;
-    background: #b8e1ff; /* Shades of blue */
+    background: #b8e1ff;
     color: rgb(52, 52, 54);
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
     border: none;
@@ -551,31 +637,50 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Design */
+/* New Join Now Button */
+.box::after {
+    content: "Join Now";
+    position: absolute;
+    background: #030046;
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+    bottom: -60px;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+    opacity: 0;
+}
 
-/* Tablet (≤ 768px) */
-@media (max-width: 768px) {
-    .content-boxes {
-        grid-template-columns: repeat(3, 1fr);
-        padding: 10px;
-    }
-
-    .box {
-        height: 420px;
-        width: 100%;
-    }
-
-    .box .btn {
-        font-size: 0.9rem;
-        padding: 6px 12px;
+/* Show button on hover (Only for Laptops) */
+@media (min-width: 1024px) {
+    .box:hover::after {
+        bottom: 0;
+        opacity: 1;
     }
 }
 
-/* Mobile (≤ 480px) */
-@media (max-width: 480px) {
+/* Always Visible "Join Now" Button for Tablets & Mobile */
+@media (max-width: 1023px) {
+    .box::after {
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+/* Responsive Design */
+
+/* Large Tablets (≤ 820px) */
+@media (max-width: 820px) {
     .content-boxes {
         grid-template-columns: repeat(2, 1fr);
-        padding: 10px;
+        padding: 15px;
+        gap: 15px;
     }
 
     .box {
@@ -584,17 +689,65 @@
     }
 
     .box .btn {
-        font-size: 0.8rem;
-        padding: 5px 10px;
+        font-size: 0.9rem;
+        padding: 6px 12px;
+        top: 10px;
+    }
+
+    .box::after {
+        font-size: 14px;
+        height: 45px;
     }
 }
 
+/* Mobile (≤ 480px) */
+@media (max-width: 480px) {
+    .content-boxes {
+        grid-template-columns: repeat(1, 1fr);
+        padding: 10px;
+        justify-content: center;
+        align-self: center;
+    }
+
+    .box {
+        height: 300px;
+        width: 80%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .box .btn {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+        top: 10px;
+    }
+
+    .box::after {
+        font-size: 14px;
+        height: 45px;
+    }
+}
+
+/* Remove blue underline from <a> links inside boxes */
+.box-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.box-link:visited {
+    color: inherit;
+}
+
+.box-link:hover {
+    text-decoration: none;
+}
 /* Footer Styles */
 .footer {
     background-color: #00113b; /* Dark blue background */
     color: white; /* White text */
     text-align: center;
-    padding: 40px 20px; /* Padding for spacing */
+    padding: 40px 20px 0; /* Remove bottom padding to eliminate gap */
     width: 100%;
     position: relative;
     z-index: 10; /* Ensure it's above other content */
@@ -634,6 +787,18 @@
     font-size: 1rem;
 }
 
+/* Hyperlink styles */
+.footer-column ul li a {
+    text-decoration: none; /* Remove underline */
+    color: lightgray; /* Keep link text gray */
+    transition: color 0.3s ease;
+}
+
+/* Change color on hover */
+.footer-column ul li a:hover {
+    color: white; /* Change to white on hover */
+}
+
 /* Footer copyright text */
 .footer p {
     font-size: 0.9rem;
@@ -644,14 +809,15 @@
 /* Image below footer */
 .footer-image {
     text-align: center;
-    margin-top: 30px; /* Space between footer and image */
     width: 100%;
+    margin-top: 0; /* Remove the space between footer and image */
 }
 
 .footer-image img {
-    width: 80%; /* Image takes up 80% of the width */
+    width: 100%; /* Image spans 100% width across all devices */
     height: auto; /* Maintain aspect ratio */
-    max-width: 100%; /* Prevent the image from exceeding the container's width */
+    max-width: 100%; /* Ensure it never exceeds container */
+    display: block; /* Remove unwanted space below inline images */
 }
 
 /* Responsive Design for tablets (≤ 1024px) */
@@ -669,13 +835,9 @@
     .footer p {
         font-size: 1rem; /* Slightly larger font size for tablet */
     }
-
-    .footer-image img {
-        width: 80%; /* Image takes up 80% of the width */
-    }
 }
 
-/* Responsive Design for smaller screens (≤ 768px) - tablets and larger phones */
+/* Responsive Design for smaller screens (≤ 768px) */
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column; /* Stack columns vertically */
@@ -690,13 +852,9 @@
     .footer p {
         font-size: 1rem; /* Adjust font size for smaller screens */
     }
-
-    .footer-image img {
-        width: 80%; /* Image takes up 80% of the width */
-    }
 }
 
-/* Responsive Design for small devices (≤ 480px) - phones */
+/* Responsive Design for small devices (≤ 480px) */
 @media (max-width: 480px) {
     .footer-container {
         flex-direction: column; /* Stack columns vertically */
@@ -720,38 +878,69 @@
     .footer p {
         font-size: 0.9rem; /* Adjust font size for smaller screens */
     }
-
-    .footer-image img {
-        width: 80%; /* Image takes up 80% of the width */
-    }
 }
+
+/* Prevent horizontal scrolling */
+html, body {
+    overflow-x: hidden; /* Stops unwanted horizontal scrolling */
+    width: 100vw; /* Ensures full viewport width */
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure the body height doesn't change due to floating elements */
+body {
+    position: relative; /* Ensures floating elements don’t affect scrolling */
+    min-height: 100vh; /* Ensures normal page scrolling works */
+}
+
+/* Code snippet floating animation */
 .code-snippet {
     position: absolute;
     top: 0;
-    font-size: 18px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: clamp(14px, 2vw, 20px);
     color: rgba(0, 24, 104, 0.5);
     animation: float-down 5s linear infinite;
+    max-width: min(90vw, 600px); /* Restricts width */
+    padding: 8px;
+    text-align: center;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    overflow: hidden; /* Prevents internal scrolling */
+    pointer-events: none; /* Ensures it doesn't interfere with user interaction */
 }
 
+/* Floating down animation */
 @keyframes float-down {
-    from { transform: translateY(0); opacity: 1; }
-    to { transform: translateY(100vh); opacity: 0; }
+    from { transform: translate(-50%, -10%); opacity: 1; }
+    to { transform: translate(-50%, 110vh); opacity: 0; }
+}
+
+/* Hide any possible scrollbars on snippet */
+.code-snippet::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for WebKit browsers */
+}
+
+.code-snippet {
+    scrollbar-width: none; /* Hides scrollbar for Firefox */
+}
+
+/* Ensure snippet behaves well on smaller screens */
+@media (max-width: 768px) {
+    .code-snippet {
+        font-size: clamp(12px, 3vw, 18px);
+        max-width: min(95vw, 400px); /* Adjust width for smaller screens */
+    }
 }
 
 
     </style>
 </head>
 <body>
-    <div id="preloader">
-        <div class="preloader-content">
-            <p class="loading-text">Initializing...</p>
-            <div class="binary-animation">
-                <span>0</span><span>1</span><span>0</span><span>1</span><span>1</span>
-                <span>0</span><span>1</span><span>0</span><span>0</span><span>1</span>
-            </div>
-        </div>
-    </div>
-    
+
     <!-- Navbar -->
     <div class="navbar">
         <div class="logo">
@@ -761,22 +950,45 @@
         <div class="menu-icon" onclick="toggleMenu()">...</div>
 
         <div class="nav-links">
-            <a href="tutorials.html">Tutorials</a>
+            <a href="tutorial.html">Tutorials</a>
             <a href="services.html">Services</a>
-            <a href="certification.html">Certification</a>
             <a href="internships.html">Internship</a>
-            <a href="login.html" class="login-button">Log In/Sign Up</a>
+            <a href="account.html" class="login-button">Account</a>
         </div>
     </div>
 
     <!-- Hero Section -->
     <div class="hero-section">
         <h2><div class="hero-title">T e c h L e a r n ;</div>
-            <div>Don't Just Use Apps, Build Them.</div>
+            <div>Don't Just Use Technology, Build It.</div>
         </h2>
     </div>
-    <div class="marquee-container">
-        <h2><div class="Marquee-title">TECH PREP</div></h2>
+ <div class="marquee-container">
+    <div class="marquee-header">
+        <h2 class="Marquee-title">TECH PREP</h2>
+        <p class="Marquee-subtext">
+            A premier placement training program helping students land jobs at top companies like Google, Amazon, and Microsoft. 
+            Get expert guidance, hands-on projects, and mentorship to boost your resume and career.
+        </p>
+    </div>
+        <div class="stats-container">
+            <div class="stat-box">
+                <h2>10+</h2>
+                <p>Courses Offered</p>
+            </div>
+            <div class="stat-box">
+                <h2>400+</h2>
+                <p>Batches Trained</p>
+            </div>
+            <div class="stat-box">
+                <h2>5000+</h2>
+                <p>Students Trained</p>
+            </div>
+            <div class="stat-box">
+                <h2>4.6</h2>
+                <p>Google Rating</p>
+            </div>
+        </div>
         <div class="marquee">
             <img src="1.png" alt="Goldman Sachs Logo">
             <img src="2.png" alt="Accenture Logo">
@@ -790,283 +1002,320 @@
             <img src="10.png" alt="Oracle Logo">
             <img src="11.png" alt="LTI Mindtree">
         </div>
+</div>   
+    <div class="content-header">
+        <img src="cc.png" alt="Core Courses" class="coding-image">
     </div>
     <div class="content-boxes">
         <!-- JAVA -->
-        <div class="box">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-            </div>
-            <div class="code-container">
-                <pre><code id="java-code">// Java: The Coffee Lover
-
+        <a href="java-course.html" class="box-link">
+            <div class="box">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="code-container">
+                    <pre><code>// Java: The Coffee Lover
     public class Main {
         public static void main(String[] args) {
-            System.out.println("Debugging... aka 
-            staring at my screen 😩");
+            System.out.println("Debugging... aka staring at my screen 😩");
         }
     }
-    </code></pre>
+                    </code></pre>
+                </div>
+                <button class="btn">JAVA</button>
             </div>
-            <button class="btn">JAVA</button>
-        </div>
+        </a>
     
         <!-- PYTHON -->
-        <div class="box">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
+        <a href="python.html" class="box-link">
+            <div class="box">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="code-container">
+                    <pre><code># Python: The Lazy Genius
+    print("Me coding at 2AM: 'Why does this work?' 🤨")
+                    </code></pre>
+                </div>
+                <button class="btn">PYTHON</button>
             </div>
-            <div class="code-container">
-                <pre><code id="python-code"># Python: The Lazy Genius
-
-    print("Me coding at 2AM: 'Why does 
-    this work?' 🤨")
-    </code></pre>
-            </div>
-            <button class="btn">PYTHON</button>
-        </div>
+        </a>
     
         <!-- DSA -->
-        <div class="box">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-            </div>
-            <div class="code-container">
-                <pre><code id="dsa-code">// DSA: Where Life Gets Complicated
-
-    int recursion(int n) 
-    {
+        <a href="dsa-course.html" class="box-link">
+            <div class="box">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="code-container">
+                    <pre><code>// DSA: Where Life Gets Complicated
+    int recursion(int n) {
         return (n > 0) ? recursion(n - 1) : 
-        printf("Why am I stuck in recursion? 
-        😵‍💫");
+        printf("Why am I stuck in recursion? 😵‍💫");
     }
-    </code></pre>
+                    </code></pre>
+                </div>
+                <button class="btn">DSA</button>
             </div>
-            <button class="btn">DSA</button>
-        </div>
+        </a>
     
         <!-- SQL -->
-        <div class="box">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
+        <a href="sql-course.html" class="box-link">
+            <div class="box">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="code-container">
+                    <pre><code>-- SQL: Finding Myself
+    SELECT * FROM life WHERE purpose IS NOT NULL;
+                    </code></pre>
+                </div>
+                <button class="btn">SQL</button>
             </div>
-            <div class="code-container">
-                <pre><code id="sql-code">-- SQL: 
-    Finding Myself
-    SELECT * FROM life WHERE purpose IS
-    NOT NULL;
-    </code></pre>
-            </div>
-            <button class="btn">SQL</button>
-        </div>
+        </a>
     
         <!-- HTML -->
-        <div class="box">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
+        <a href="html-course.html" class="box-link">
+            <div class="box">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="code-container">
+                    <pre><code>&lt;!HTML: The OG Influencer&gt;
+    &lt;marquee&gt;My website is better than yours 😎&lt;/marquee&gt;
+                    </code></pre>
+                </div>
+                <button class="btn">HTML</button>
             </div>
-            <div class="code-container">
-                <pre><code id="html-code">&lt;!HTML: The OG Influencer&gt;
-    &lt;marquee&gt;My website is better than 
-    yours 😎&lt;/marquee&gt;
-    </code></pre>
-            </div>
-            <button class="btn">HTML</button>
-        </div>
+        </a>
     
         <!-- CSS -->
-        <div class="box">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-            </div>
-            <div class="code-container">
-                <pre><code id="css-code">/* CSS: When Nothing Works */
+        <a href="css-course.html" class="box-link">
+            <div class="box">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="code-container">
+                    <pre><code>/* CSS: When Nothing Works */
     div {
         display: flex;
         justify-content: center;
         align-items: center;
         /* still not centered 😭 */
     }
-    </code></pre>
+                    </code></pre>
+                </div>
+                <button class="btn">CSS</button>
             </div>
-            <button class="btn">CSS</button>
-        </div>
+        </a>
     
         <!-- JAVASCRIPT -->
-        <div class="box">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-            </div>
-            <div class="code-container">
-                <pre><code id="js-code">// JavaScript: The Weird Kid
+        <a href="js-course.html" class="box-link">
+            <div class="box">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="code-container">
+                    <pre><code>// JavaScript: The Weird Kid
     console.log(0 == "0"); // true
     console.log(0 === "0"); // false
     console.log([] + []); // ""
-    </code></pre>
+                    </code></pre>
+                </div>
+                <button class="btn">JAVASCRIPT</button>
             </div>
-            <button class="btn">JS</button>
-        </div>
+        </a>
     
         <!-- C -->
-        <div class="box">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-            </div>
-            <div class="code-container">
-                <pre><code id="c-code">// C: The OG
+        <a href="c-course.html" class="box-link">
+            <div class="box">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="code-container">
+                    <pre><code>// C: The OG
     #include &lt;stdio.h&gt;
     int main() {
         printf("Segmentation fault (core dumped) 💀");
         return 0;
     }
-    </code></pre>
+                    </code></pre>
+                </div>
+                <button class="btn">C</button>
             </div>
-            <button class="btn">C</button>
-        </div>
+        </a>
     
         <!-- C++ -->
-        <div class="box">
-            <div class="terminal-header">
-                <span class="dot red"></span>
-                <span class="dot yellow"></span>
-                <span class="dot green"></span>
-            </div>
-            <div class="code-container">
-                <pre><code id="cpp-code">// C++: When You Just Can't Let Go of C
+        <a href="cpp-course.html" class="box-link">
+            <div class="box">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="code-container">
+                    <pre><code>// C++: When You Just Can't Let Go of C
     #include &lt;iostream&gt;
     using namespace std;
     int main() {
-        cout << "Hello World, but make it 
-        Object-Oriented 🫠";
+        cout << "Hello World, but make it Object-Oriented 🫠";
         return 0;
     }
-    </code></pre>
+                    </code></pre>
+                </div>
+                <button class="btn">C++</button>
             </div>
-            <button class="btn">C++</button>
-        </div>
+        </a>
     </div>
     
-<!-- Footer -->
-<div class="footer">
-    <div class="footer-container">
-        <div class="footer-column">
-            <h3>LEARN</h3>
-            <ul>
-                <li>Paid Courses</li>
-                <li>Free Resources</li>
-                <li>Blogs</li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>COMPANY</h3>
-            <ul>
-                <li>About Us</li>
-                <li>Careers</li>
-                <li>Contact</li>
-            </ul>
-        </div>
-        <div class="footer-column">
-            <h3>CONNECT</h3>
-            <ul>
-                <li>Youtube</li>
-                <li>Facebook</li>
-                <li>Instagram</li>
-            </ul>
-        </div>
-    </div>
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>CONNECT</h3>
+                <ul>
+                    <li><a href="https://www.youtube.com" target="_blank">YouTube</a></li>
+                    <li><a href="https://www.facebook.com" target="_blank">WhatsApp </a></li>
+                    <li><a href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>LEARN</h3>
+                <ul>
+                    <li><a href="#">Paid Courses</a></li>
+                    <li><a href="#">Free Resources</a></li>
+                    <li><a href="#">Blogs</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>COMPANY</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div> 
 <!-- Image below footer -->
 <div class="footer-image">
     <img src="footer.png" alt="Footer Image">
 </div>
 
     <script>
-        function toggleMenu() {
-            let navLinks = document.querySelector(".nav-links");
-            navLinks.classList.toggle("show");
-        }
-        const codeSnippets = ["<div>", "console.log('Hello');", "if(x > 10){}", "function(){}", ".container { }"];
-
-function createSnippet() {
-    let snippet = document.createElement("span");
-    snippet.classList.add("code-snippet");
-    snippet.innerText = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
-    
-    snippet.style.left = Math.random() * window.innerWidth + "px";
-    document.body.appendChild(snippet);
-
-    setTimeout(() => snippet.remove(), 5000);
-}
-
-setInterval(createSnippet, 800);
-// Get all animated boxes (2, 5, 8) in column 2
-const animatedBoxes = document.querySelectorAll('.animated-box');
-
-// Function to handle scroll-based animation
-function onScroll() {
-    animatedBoxes.forEach((box) => {
-        const boxPosition = box.getBoundingClientRect().top;
-        const viewportHeight = window.innerHeight;
-
-        // Check if the element is visible in viewport
-        if (boxPosition < viewportHeight * 0.9) { // Activates earlier for a smoother effect
-            let moveAmount = ((viewportHeight - boxPosition) / viewportHeight) * 50; // Adjust movement range
-            moveAmount = Math.min(moveAmount, 80); // Limit max movement
-            box.style.transform = `translateY(${moveAmount}px)`;
-            box.style.opacity = 1; // Ensure it stays visible
-        } else {
-            box.style.transform = 'translateY(0)';
-        }
-    });
-}
-
-// Add event listener to track scrolling
-window.addEventListener('scroll', onScroll);
-
-// Run once on load to check visibility immediately
-onScroll();
-
-
-    var animation = lottie.loadAnimation({
-        container: document.getElementById("lottie"),
-        renderer: "svg",
-        loop: true,
-        autoplay: true,
-        path: "https://assets3.lottiefiles.com/packages/lf20_jpVFx7.json"
-    });
-
-    window.addEventListener("load", function () {
-        document.getElementById("preloader").style.display = "none";
-    });
-document.addEventListener("DOMContentLoaded", function () {
+// 📌 1. PAGE RESPONSIVENESS FIX: Prevents layout shifts on resize
+window.addEventListener('resize', () => {
+    document.body.style.display = 'none';
     setTimeout(() => {
-        document.getElementById("preloader").classList.add("preloader-fadeout");
-    }, 2500); // Adjust time as needed
+        document.body.style.display = 'block';
+    }, 10);
 });
-// typewriter of content boxes
+
+// 📌 2. NAVBAR TOGGLE FUNCTION FOR MOBILE/TABS
+function toggleMenu() {
+    let navLinks = document.querySelector(".nav-links");
+    let menuIcon = document.querySelector(".menu-icon");
+
+    navLinks.classList.toggle("show");
+    menuIcon.classList.toggle("active"); // Moves icon higher
+
+    // ✅ Toggle between horizontal and vertical dots
+    menuIcon.innerHTML = navLinks.classList.contains("show") ? "⋮" : "...";
+}
+
+// 📌 3. CODE SNIPPET FALLING ANIMATION
+document.addEventListener("DOMContentLoaded", () => {
+    const codeSnippets = [
+    "console.log('You got this!');",
+    "alert('Keep coding!');",
+    "success = true;",
+    "return 'Dream big!';",
+    "commit -m 'Growth 🚀'",
+    "push(‘Hard work’);",
+    "while(!success) keepTrying();",
+    "def future(): return ‘Bright’",
+    "try { newChallenge(); } catch { Learn(); }",
+    "const motivation = Infinity;",
+    "import happiness from ‘life’;",
+    "keepGoing(); // Always!",
+    "let progress = ++you;",
+    "new Day().new Opportunity();",
+    "System.out.println('Keep shining!');",
+    "SELECT * FROM life WHERE happy = true;",
+    "stayPositive(); // Always works!",
+    "npm install confidence",
+    "startJourney(); // Begin!",
+    "smile++; // Every day"
+];
+
+
+    function createSnippet() {
+        let snippet = document.createElement("span");
+        snippet.classList.add("code-snippet");
+        snippet.innerText = codeSnippets[Math.floor(Math.random() * codeSnippets.length)];
+
+        // ✅ Spawn at a random horizontal position within the viewport
+        snippet.style.left = Math.random() * window.innerWidth + "px";
+
+        document.body.appendChild(snippet);
+
+        // Remove snippet after animation ends
+        setTimeout(() => snippet.remove(), 5000);
+    }
+
+    setInterval(createSnippet, 1500); // Generate new snippets every 1.5s
+});
+
+// 📌 4. SCROLL-BASED ANIMATION FOR CONTENT BOXES
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedBoxes = document.querySelectorAll('.animated-box');
+
+    if (animatedBoxes.length === 0) return; // Prevents errors if no elements exist
+
+    function onScroll() {
+        animatedBoxes.forEach((box) => {
+            const boxPosition = box.getBoundingClientRect().top;
+            const viewportHeight = window.innerHeight;
+
+            if (boxPosition < viewportHeight * 0.9) { // ✅ Activate animation earlier
+                let moveAmount = ((viewportHeight - boxPosition) / viewportHeight) * 50;
+                moveAmount = Math.min(moveAmount, 80); // ✅ Limit max movement
+                box.style.transform = `translateY(${moveAmount}px)`;
+                box.style.opacity = "1"; // ✅ Ensure it stays visible
+            } else {
+                box.style.transform = "translateY(0)";
+                box.style.opacity = "0";
+            }
+        });
+    }
+
+    window.addEventListener("scroll", onScroll); // ✅ Trigger on scroll
+    onScroll(); // ✅ Run once to check already visible elements
+});
+
+// 📌 5. TYPEWRITER EFFECT FOR CODE CONTENT BOXES
 function typeEffect(element, text, speed) {
     let index = 0;
-    let lines = text.split("\n"); // Split text into lines
-    element.innerHTML = ""; // Clear previous text
+    let lines = text.split("\n"); // ✅ Split text into lines
+    element.innerHTML = ""; // ✅ Clear previous text
 
     function typeLine(lineIndex) {
         if (lineIndex >= lines.length) {
-            return; // Stop when all lines are printed
+            return; // ✅ Stop when all lines are printed
         }
 
         let charIndex = 0;
@@ -1081,24 +1330,23 @@ function typeEffect(element, text, speed) {
                 charIndex++;
                 setTimeout(typeCharacter, speed);
             } else {
-                lineElement.innerHTML = line; // Final text without cursor
-                setTimeout(() => typeLine(lineIndex + 1), 400); // Move to next line
+                lineElement.innerHTML = line; // ✅ Final text without cursor
+                setTimeout(() => typeLine(lineIndex + 1), 400); // ✅ Move to next line
             }
         }
 
         typeCharacter();
     }
 
-    typeLine(0); // Start typing
+    typeLine(0); // ✅ Start typing
 }
 
-// Attach to hover event
+// 📌 6. HOVER EVENT TO TRIGGER TYPEWRITER EFFECT
 document.querySelectorAll(".code-container").forEach((box) => {
     box.addEventListener("mouseenter", function () {
         typeEffect(this, this.getAttribute("data-code"), 50);
     });
 });
-
 
 </script>
 </body>
